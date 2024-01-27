@@ -1,150 +1,200 @@
-/*-----------------  GOOGLE FONTS  -----------------*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600&display=swap');
-
-/*-----------------  VARIABLES  -----------------*/
-:root {
-    /* Colors */ 
-    --orange-color: rgb(246, 99, 53);
-    --dark-color:rgb(27, 31, 41);
-    --border: rgba(255, 255, 255, 0.25);
-    --background: rgba(255, 255, 255, 0.1);
-    --box_shadow: rgba(3, 46, 87, 0.3);
+/******* HELPERS *******/
+* .hide, * .hide > * {
+	display: none;
+}
+.pass {
+	background: #4d914c;
+}
+.fail {
+	background: #d15454;
 }
 
-html{
-    font-size: 10px;
-    /* Now 1rem = 10px */
-}
+/******* BASE STYLING *******/
 
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
+	color: #FEFEFE;
+	font-family: 'Share Tech Mono', monospace;
+}
+button {
+	border-radius: 10px;
+	border: 3px solid transparent;
+	padding: 0.5rem 1rem;
+	background: rgba(0,0,0,0.5);
+}
+button, input[type="submit"] {
+	cursor: pointer;
+}
+/******* HEADER *******/
+
+html {
+	background: #000;
 }
 body {
-    background: url(images/background.jpg);
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	background: url(../img/background.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;	
 }
-.container {
-    width: 35%;
-    height: auto;
-    background: var(--background);
-    backdrop-filter: blur(0.5rem);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 1rem;
-    box-shadow: 0 1.8rem 3.7rem var(--box_shadow);
+header {
+	background: rgba(0,0,0,0.5);
 }
-.search_box {
-  width: 40rem;
-  background: rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  border-radius: 3rem;
-  padding: 1rem 1rem;
-  backdrop-filter: blur(0.4rem) saturate(180%);
-  box-shadow: 0 1.8rem 3.7rem var(--box_shadow);
-  margin-top: 5rem;
-} 
-.search_box input {
-  background: transparent;
-  flex: 1;
-  border: 0;
-  outline: none;
-  padding: 0 1rem;
-  font-size: 1.6rem;
-  color:var(--dark-color);
+.title {
+	margin-left: 1rem;
 }
-.search_box input::placeholder {
-  color: var(--dark-color);
+.sub-title {
+	font-size: 1rem;
+	color: #DDD;
+	margin-left: 1rem;
 }
-.search_box button {
-  border: 0;
-  border-radius: 50%;
-  background:var(--orange-color);
-  cursor: pointer;
-  width: 3rem;
-  height: 3rem;
+/******* MAIN CONTENT *******/
+.quiz-wrapper {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	width: 100%;
+	height: 90%;
 }
-.search_box .icon {
-  width: 2rem;
-  height: 2rem; 
-  padding: 0.5rem;
-  color: var(--dark-color); 
+.question-wrapper {
+	border-radius: 10px;
 }
-.error {
-  margin: 4rem 0 5rem 0;
-  color: var(--dark-color);
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 2rem;
-  letter-spacing: 0.1rem;
+.question {
+	padding: 3rem;
+	background: rgba(0,0,0,0.3);
+	border-radius: 10px;
 }
-#show {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+.code pre {
+	font-size: 1.25em;
+	color: #22FF44;
+
 }
-#show h2 {
-  color: var(--dark-color);
-  text-transform: uppercase;
-  letter-spacing: 0.18rem;
-  font-weight: 600;
-  font-size: 2.6rem;
-  margin: 3rem 0 2rem 0;
+.question, .start-quiz, .quit-quiz {
+	font-size: 1.75em;
 }
-.weather, .desc {
-  color: var(--dark-color);
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  font-size: 1.4rem;
-  font-weight: 600;
-  line-height: 2rem;
+
+.start-quiz {
+	background: rgba(0,255,0,0.2);
 }
-.weather {
-  margin: 1rem 0;
+.start-quiz:hover {
+	background: rgba(0,255,0,0.4);
+	border: 3px solid rgba(255,255,255,1);
 }
-#show img {
-  margin: 2rem 0 0 0;
-  width: 10rem;
-  filter: drop-shadow(0 1.8rem 3.7rem var(--shadow));
+.quit-quiz {
+	background: rgba(255,0,0,0.2);
 }
-#show h1 {
-  font-size: 6rem;
-  margin: 2rem 0 2rem 0;
-  line-height: 0;
-  font-weight: 400;
-  color: var(--dark-color);
+.quit-quiz:hover {
+	background: rgba(255,0,0,0.4);
+	border: 3px solid rgba(255,255,255,1);
 }
-.temp_container {
-  display: flex;
-  justify-content: center;
-  margin: 3rem 0 5rem 0;
-  text-align: center;
+.answer-btn {
+	color: #fefefe;
+	height: auto;
+	cursor: pointer;
+	font-size: 1.5rem;
+	background: rgba(0,0,0,0.5);
+	border: 3px solid rgba(255,255,255,0.2);
 }
-.temp_container div {
-  padding: 1rem 1.5rem;
+button {
+	cursor: pointer;
 }
-.temp_container div:first-child {
-  border-right: 0.1rem solid var(--border);
+.answer-btn.selected {
+	background: rgba(255,255,255,0.15);
+	border: 3px solid #71B6E3;
 }
-.temp_container .title {
-  font-weight: 600;
-  color: var(--dark-color);
-  font-size: 1.6rem;
+.answer-btn.selected.pass {
+	background: #4d914c;
 }
-.temp_container .temp {
-  font-weight: 600;
-  color: var(--orange-color);
-  font-size: 1.6rem;
+.answer-btn.selected.fail {
+	background: rgba(255,0,0,0.5);
+	border: 3px solid #71B6E3;
+}
+.dim-answer {
+	opacity: 0.5;
+}
+.answer-btn.pass {
+	background: rgba(0,255,0,0.5);
+	border: 3px solid #00FF00;
+}
+.submit-btn, .continue-btn, .retry-btn{
+	width: 90%
+	margin: 0 auto;
+	border-radius: 10px;
+}
+
+
+.continue-btn {
+	background: rgba(247, 230, 116, 0.75);
+}
+
+/******* FOOTER *******/
+
+.progress-bar {
+	background: rgba(0,0,0,0.75);
+}
+
+.failures-list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.failure {
+	padding: 0.25rem 1rem;
+	background: rgba(0,0,0,0.5);
+}
+
+
+.submit-btn, .continue-btn {
+	padding: 0.5rem 1rem;
+	margin-bottom: 1rem;
+	font-size: 1.75rem;
+}
+
+/******* FEEDBACK *******/
+.results-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	flex-grow: 1;
+}
+.quiz-end-score {
+	display: flex;
+	font-size: 2rem;
+	text-align: center;
+}
+.quiz-end-feedback {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.25rem;
+	color: #CCC;
+	width: 90%;
+	margin: 1rem;
+}
+.quiz-end-feedback-p {
+	margin: 1rem;
+}
+.category {
+	display: flex;
+	border-radius: 10px;
+	padding: 0.25rem 1rem;
+	font-size: 1.5rem;
+	background: #d15454;
+	margin: 0.5rem;
+	padding: 0.25rem;
+}
+.quiz-end-categories {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+.failures {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+.category {
+
 }
